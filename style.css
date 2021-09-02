@@ -1,0 +1,483 @@
+* {
+    font-family: "Josefin Sans", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    -webkit-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    -ms-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+    outline: none;
+    border: none;
+    z-index: 10;
+}
+
+:root {
+    --white: #ffffff;
+    --black: #000000;
+    --grayA: #8c8c8c;
+    --grayB: #696969;
+}
+
+html {
+    font-size: 63.5%;
+    scroll-behavior: smooth;
+    scroll-margin: 10rem;
+}
+
+body {
+    overflow-x: hidden;
+    background: var(--white);
+    width: 100%;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.deskImg,
+.seeAllTop {
+    display: block;
+}
+
+.mobImg,
+.seeAllBottom {
+    display: none;
+}
+
+
+/* ******************************* HEADER ***************************** */
+
+.header {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.headerBg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+}
+
+.headerBg::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: #00000060;
+}
+
+.headerContent {
+    width: 85%;
+}
+
+.navBar {
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 3rem;
+    width: 100%;
+    padding: 5rem 3rem;
+}
+
+.menu,
+.footNav,
+.socialLink {
+    display: flex;
+    color: var(--white);
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    font-size: 1.5rem;
+}
+
+.menu li,
+.footNav li,
+.socialLink li {
+    position: relative;
+    cursor: pointer;
+}
+
+.menu li::before,
+.footNav li::before,
+.socialLink li::before {
+    content: "";
+    position: absolute;
+    bottom: -80%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0.2rem;
+    border-radius: 100px;
+    transition: 0.2s;
+}
+
+.menu li:hover::before,
+.footNav li:hover::before,
+.socialLink li:hover::before {
+    width: 50%;
+    background: var(--white);
+}
+
+.navBar .menuBtn,
+.navBar .close {
+    display: none;
+    cursor: pointer;
+}
+
+.header .content {
+    color: var(--white);
+    padding: 10rem 3rem;
+}
+
+.header .content h1 {
+    font-size: max(4.5vw, 5.5rem);
+    font-weight: 300;
+    border: 1.5px solid var(--white);
+    width: fit-content;
+    padding: 3rem 8rem 3rem 3rem;
+}
+
+
+/* **************************** INTRODUCTION ZONE ************************ */
+
+.introBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    z-index: 0;
+}
+
+.introBox .introImg {
+    padding: 8rem;
+    width: 100%;
+}
+
+.introBox .introImg img {
+    width: 70%;
+}
+
+.introBox .content {
+    background: var(--white);
+    z-index: 10;
+    padding: 7rem;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.introBox .content h1 {
+    font-size: max(2.9vw, 2.7rem);
+    font-weight: 300;
+    width: max(80%, 25rem);
+}
+
+.introBox .content p {
+    width: max(90%, 25rem);
+    color: var(--grayA);
+    font: 600 1.55rem/180% "Atala", sans-serif;
+}
+
+
+/* **************************** CREATIONS ZONE ************************ */
+
+.creationBox {
+    padding: 6rem;
+}
+
+.creationBox .heading {
+    display: flex;
+    gap: 3rem;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4rem 0;
+}
+
+.creationBox .heading h1 {
+    font-size: 4.5rem;
+    font-weight: 300;
+}
+
+.creationBox .heading button {
+    border: 1px solid var(--black);
+    padding: 1rem 3rem;
+    font: 400 1.5rem "Alata", "Josefin Sans", sans-serif;
+    letter-spacing: 3px;
+    background: var(--white);
+    cursor: pointer;
+}
+
+.creationBox .heading button:hover {
+    background: var(--black);
+    color: var(--white);
+}
+
+.creationBox .gallery {
+    padding: 3rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+}
+
+.gallery .vrBox {
+    width: min(23%, 30rem);
+    position: relative;
+    z-index: 0;
+    cursor: pointer;
+}
+
+.gallery .vrBox:hover::before {
+    background: #ffffffb8;
+}
+
+.gallery .vrBox:hover .vrName {
+    color: var(--black);
+}
+
+.gallery .vrBox::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(#00000000, #00000000, #0000008f 80%);
+    transition: 1s;
+}
+
+.vrBox .vrName {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 2.5rem;
+    font-size: max(3vw, 2.5rem);
+    font-weight: 200;
+    color: var(--white);
+    width: 100%;
+}
+
+
+/* **************************** FOOTER ************************ */
+
+.footer {
+    background: var(--black);
+    color: var(--white);
+    padding: 8rem 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footerContent {
+    width: min(100%, 115.2rem);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3rem;
+}
+
+.services,
+.socialBox {
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.socialBox {
+    text-align: right;
+}
+
+.services .footNav {
+    justify-content: flex-start;
+}
+
+.socialLink {
+    gap: 2rem;
+    justify-content: flex-end;
+}
+
+.socialLink li::before {
+    bottom: -20%;
+}
+
+.socialLink li:hover::before {
+    width: 100%;
+}
+
+.attributes {
+    font-size: 1.5rem;
+    color: var(--grayA);
+    font-family: "Alata", sans-serif;
+}
+
+
+/* **************************** MEDIA QUERIES ************************ */
+
+@media (max-width: 768px) {
+    html {
+        font-size: 55.5%;
+    }
+    .deskImg,
+    .headerBg::before,
+    .hamburger.open,
+    .seeAllTop {
+        display: none;
+    }
+    .mobImg,
+    .navBar .menuBtn,
+    .close.open,
+    .seeAllBottom {
+        display: block;
+    }
+    .headerContent {
+        width: 100%;
+    }
+    .menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        position: fixed;
+        right: -100%;
+        top: 0;
+        width: 100%;
+        height: 100vmax;
+        background: var(--black);
+        gap: 3rem;
+        font-size: 5rem;
+        font-weight: 300;
+        padding: 0 3rem;
+        z-index: 9;
+        text-transform: uppercase;
+    }
+    .menu.open {
+        right: 0;
+    }
+    .menu li::before {
+        bottom: -20%;
+    }
+    .header .content h1 {
+        padding: 3rem;
+        width: 100%;
+    }
+    .introBox {
+        text-align: center;
+    }
+    .introBox .introImg {
+        padding: 14rem 4rem 0 4rem;
+    }
+    .introBox .introImg img {
+        width: 100%;
+    }
+    .introBox .content {
+        padding: 7rem;
+        position: relative;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        gap: 4rem;
+        left: 0;
+    }
+    .introBox .content h1 {
+        width: 100%;
+        font-size: 4.5rem;
+    }
+    .introBox .content p {
+        width: 100%;
+        font: 700 1.8rem/180% "Atala", sans-serif;
+        color: var(--grayA);
+    }
+    .creationBox {
+        padding: 4rem;
+    }
+    .creationBox .heading {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .creationBox .gallery {
+        padding: 3rem 0;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 3rem;
+    }
+    .gallery .vrBox {
+        width: 100%;
+        position: relative;
+        z-index: 0;
+    }
+    .gallery .vrBox::before {
+        background: #00000060;
+    }
+    .vrBox .vrName {
+        width: 35%;
+        font-size: 4rem;
+        padding: 2rem;
+    }
+    .creationBox .heading button {
+        border: 1px solid var(--black);
+        padding: 1rem 6rem;
+        font: 400 3rem "Alata", "Josefin Sans", sans-serif;
+    }
+    .footerContent {
+        flex-direction: column;
+    }
+    .services,
+    .socialBox {
+        width: 100%;
+        text-align: center;
+    }
+    .services .footNav {
+        justify-content: center;
+        flex-direction: column;
+        font-size: 2.5rem;
+        padding: 4rem 0;
+        gap: 4rem;
+    }
+    .services .footNav li::before {
+        bottom: -20%;
+    }
+    .socialLink {
+        justify-content: center;
+    }
+    .attributes {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 425px) {
+    html {
+        font-size: 45.5%;
+    }
+    .header {
+        height: 89rem;
+    }
+}
